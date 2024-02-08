@@ -41,11 +41,6 @@
     cart.TotalPrice
     this.getTotalCount();
   },
- // Для себя
-  getTotalCount(){
-    console.log(`Общее количество товаров: ${this.count}`);
-  },
-
   };
 
  
