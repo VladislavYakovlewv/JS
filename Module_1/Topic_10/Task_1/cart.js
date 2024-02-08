@@ -1,12 +1,15 @@
 {
   const cart = {
   items: [],
-  TotalPrice: 0,
   count: 0,
+  
 
-  getTotalPrice (){
-    console.log(`Общая стоймость товаров: ${this.TotalPrice}`);
+  get TotalPrice (){
+    return console.log(`Общая стоймость товаров: ${this.calculateItemPrice()}`);
   },
+  //getTotalPrice (){
+  //console.log(`Общая стоймость товаров: ${this.TotalPrice}`);
+  //}, 
 
   add(name, cost, countItem){
    const product = {};
@@ -15,7 +18,6 @@
    product.countItem = countItem;
 
    this.items.push(product);
-   this.calculateItemPrice(cost, countItem);
    this.increaseCount(product.countItem);
   },
 
@@ -23,8 +25,8 @@
     this.count += number;
   },
 
-  calculateItemPrice(cost, countItem){
-   this.TotalPrice = this.items.reduce((previousValue, currentValue) => previousValue + (currentValue.cost * currentValue.countItem), 0)
+  calculateItemPrice(){
+   return this.items.reduce((previousValue, currentValue) => previousValue + (currentValue.cost * currentValue.countItem), 0)
   },
 
   clear(){
@@ -36,7 +38,7 @@
   print(){
     const CartStr = JSON.stringify(cart.items);
     console.log('CartStr:', CartStr);
-    this.getTotalPrice();
+    cart.TotalPrice
     this.getTotalCount();
   },
  // Для себя
@@ -45,6 +47,8 @@
   },
 
   };
+
+ 
 
 
   cart.add('Игра', 1000, 2);
