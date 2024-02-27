@@ -37,23 +37,17 @@
             playerChange.toLowerCase() + '\nРезультаты: игрок победил');
             result.player++;
           }
-          if (ComputerChange === 'камень') {
-            alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
-            playerChange.toLowerCase() + '\nРезультаты: компьютер победил');
-            result.computer++;
-          }
           if (ComputerChange === 'ножницы') {
             alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
             playerChange.toLowerCase() + '\nРезультаты: ничья');
+          } else {
+            alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
+            playerChange.toLowerCase() + '\nРезультаты: вы проиграли');
+            result.computer++;
           }
           start();
           break;
         case 'камень':
-          if (ComputerChange === 'бумага') {
-            alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
-            playerChange.toLowerCase() + '\nРезультаты: компьютер победил');
-            result.computer++;
-          }
           if (ComputerChange === 'камень') {
             alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
             playerChange.toLowerCase() + '\nРезультаты: ничья');
@@ -62,6 +56,10 @@
             alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
             playerChange.toLowerCase() + '\nРезультаты: игрок победил');
             result.player++;
+          } else {
+            alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
+            playerChange.toLowerCase() + '\nРезультаты: вы проиграли');
+            result.computer++;
           }
           start();
           break;
@@ -74,10 +72,9 @@
             alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
             playerChange.toLowerCase() + '\nРезультаты: игрок победил');
             result.player++;
-          }
-          if (ComputerChange === 'ножницы') {
+          } else {
             alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
-        playerChange.toLowerCase() + '\nРезультаты: компьютер победил');
+            playerChange.toLowerCase() + '\nРезультаты: вы проиграли');
             result.computer++;
           }
           start();
