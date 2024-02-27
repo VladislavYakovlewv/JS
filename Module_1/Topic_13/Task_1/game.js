@@ -21,7 +21,7 @@
         if (PlayerChangeTwo === null) {
           alert(`Количество очков: \nИгрок: ${result.player} 
 Компьютер: ${result.computer} `);
-          return 0;
+          throw new Error('Stop script');
         } else {
           start();
         }
@@ -30,59 +30,30 @@
         start();
       }
       const ComputerChange = FIGURES_RUS[getRandomIntInclusive(0, 2)];
-      switch (playerChange) {
-        case 'ножницы':
-          if (ComputerChange === 'бумага') {
-            alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
-            playerChange.toLowerCase() + '\nРезультаты: игрок победил');
-            result.player++;
-          }
-          if (ComputerChange === 'ножницы') {
-            alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
-            playerChange.toLowerCase() + '\nРезультаты: ничья');
-          } else {
-            alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
-            playerChange.toLowerCase() + '\nРезультаты: вы проиграли');
-            result.computer++;
-          }
+
+
+      if (playerChange === FIGURES_RUS[0] ||
+          playerChange === FIGURES_RUS[1] ||
+          playerChange === FIGURES_RUS[2]) {
+        if ((playerChange === 'камень') && (ComputerChange === 'ножницы') ||
+            (playerChange === 'ножницы') && (ComputerChange === 'бумага') ||
+            (playerChange === 'бумага') && (ComputerChange === 'камень')) {
+          alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
+      playerChange.toLowerCase() + '\nРезультаты: игрок победил');
+          result.player++;
           start();
-          break;
-        case 'камень':
-          if (ComputerChange === 'камень') {
-            alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
-            playerChange.toLowerCase() + '\nРезультаты: ничья');
-          }
-          if (ComputerChange === 'ножницы') {
-            alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
-            playerChange.toLowerCase() + '\nРезультаты: игрок победил');
-            result.player++;
-          } else {
-            alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
-            playerChange.toLowerCase() + '\nРезультаты: вы проиграли');
-            result.computer++;
-          }
+        } else if (playerChange === ComputerChange) {
+          alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
+          playerChange.toLowerCase() + '\nРезультаты: ничья');
           start();
-          break;
-        case 'бумага':
-          if (ComputerChange === 'бумага') {
-            alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
-            playerChange.toLowerCase() + '\nРезультаты: ничья');
-          }
-          if (ComputerChange === 'камень') {
-            alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
-            playerChange.toLowerCase() + '\nРезультаты: игрок победил');
-            result.player++;
-          } else {
-            alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
-            playerChange.toLowerCase() + '\nРезультаты: вы проиграли');
-            result.computer++;
-          }
+        } else {
+          alert('Компьютер: ' + ComputerChange + '\nИгрок: ' +
+          playerChange.toLowerCase() + '\nРезультаты: вы проиграли');
+          result.computer++;
           start();
-          break;
-        default:
-          start();
-          break;
+        }
       }
+      start();
     };
   };
 
